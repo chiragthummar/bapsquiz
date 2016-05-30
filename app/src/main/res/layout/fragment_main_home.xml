@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:auto_cycle="true"
+        app:indicator_visibility="visible"
+        app:pager_animation="Accordion"
+        app:pager_animation_span="1100" />
+
+    <TextView
+        android:id="@+id/tvNoDataFound"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="101.0dip"
+        android:gravity="center"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="@string/no_data_table_fragment"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_go_to_calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="141.0dip"
+        android:background="@drawable/btn_view_by_months_years"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="@string/go_to_calc"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/app_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        app:selected_color="#0095BF"
+        app:selected_drawable="@drawable/baps_logo"
+        app:selected_height="6dp"
+        app:selected_padding_left="5dp"
+        app:selected_padding_right="5dp"
+        app:selected_width="6dp"
+        app:shape="oval"
+        app:unselected_color="#55333333"
+        app:unselected_height="6dp"
+        app:unselected_padding_left="5dp"
+        app:unselected_padding_right="5dp"
+        app:unselected_width="6dp" />
+
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/app_indicator2"
+        style="@style/AndroidImageSlider_Corner_Oval_Orange"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+
+
+    <view
+        android:id="@+id/recycler_view"
+        class="android.support.v7.widget.RecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="340dp"
+        android:layout_gravity="bottom" />
+
+</FrameLayout>

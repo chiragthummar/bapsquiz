@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quiz_fragment_wrapper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg"
+        android:textSize="18.0sp" />
+
+    <!--  <View
+          android:id="@+id/background_gradient"
+          android:layout_width="fill_parent"
+          android:layout_height="120.0dip"
+          android:background="@drawable/question_gradient" />-->
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quiz_button_mc_option_1"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dip">
+
+        <TextView
+            android:id="@+id/txtQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="28.0sp" />
+    </ScrollView>
+
+
+
+    <Button
+        android:id="@+id/quiz_button_mc_option_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quiz_button_mc_option_2"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:background="@drawable/button_multiple_choice_background"
+        android:padding="5.0dip"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16.0sp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/quiz_button_mc_option_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quiz_button_mc_option_3"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:background="@drawable/button_multiple_choice_background"
+        android:padding="5.0dip"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16.0sp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/quiz_button_mc_option_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quiz_button_mc_option_4"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:background="@drawable/button_multiple_choice_background"
+        android:padding="5.0dip"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16.0sp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/quiz_button_mc_option_4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quiz_progress_textview"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:background="@drawable/button_multiple_choice_background"
+        android:padding="5.0dip"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16.0sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/quiz_progress_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5.0dip"
+        android:textColor="@color/white"
+        android:textSize="14.0sp" />w
+</RelativeLayout>

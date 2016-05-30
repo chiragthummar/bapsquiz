@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">BAPSQuiz</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="date_picker_title">Choose Date</string>
+    <string name="decrease_loan_term">Decrease Loan Term</string>
+    <string name="decrease_loan_term_and_increase_payment_amount">Decrease Loan Term and/or Increase Payment Amount.</string>
+    <string name="dismiss_snackbar">Dismiss</string>
+    <string name="done">Done</string>
+    <string name="go_to_calc">Retry</string>
+    <string name="increase_interest_rate">Increase Interest Rate</string>
+    <string name="increase_loan_amount">Increase Loan Amount</string>
+    <string name="increase_loan_term">Increase Loan Term</string>
+    <string name="increase_loan_term_and_payment_amount">Increase Loan Term and/or Payment Amount.</string>
+    <string name="increase_payment_amount">Increase Payment Amount</string>
+    <string name="interest_rate">લોન નો વ્યાજ દર (%)</string>
+    <string name="interest_rate_hint">વાર્ષિક વ્યાજ </string>
+    <string name="line_one">Interest</string>
+    <string name="line_three">Balance</string>
+    <string name="line_two">Principal</string>
+    <string name="loan_amount">લોન ની રકમ </string>
+    <string name="loan_amount_hint">લોન ની રકમ ઉમેરો  </string>
+    <string name="loan_term">લોન મુદત </string>
+    <string name="loan_term_hint">લોન ની મુદત </string>
+    <string name="maximum_interest_rate">Maximum Interest Rate is %s.</string>
+    <string name="minimum_interest_rate">Minimum Interest Rate is %s.</string>
+    <string name="minimum_loan_amount">Minimum Loan Amount is %s</string>
+    <string name="minimum_loan_term_months">Minimum Loan Term is %s months</string>
+    <string name="minimum_loan_term_years">Minimum Loan Term is %s years</string>
+    <string name="monthly_payment_hint">હપ્તો </string>
+    <string name="monthly_payment_should_be_more_than">Monthly Payment should be more than %s</string>
+    <string name="months">મહિનો </string>
+    <string name="no_data_chart_fragment">Unable to connect to internet</string>
+    <string name="no_data_table_fragment">Unable to connect to internet</string>
+    <string name="on_checked_changed_text">%1$s locked. Input the other 3 fields to calculate %2$s.</string>
+    <string name="payment">ચુકવણી </string>
+    <string name="pie_chart_title">કુલ સવાલ</string>
+    <string name="pie_slice_one">ખોટા જવાબ</string>
+    <string name="pie_slice_two">સાચા જવાબ</string>
+    <string name="pref_about_app_title">એપ વિષે</string>
+    <string name="pref_app_version">Version: 1.0</string>
+    <string name="pref_calculator_title">CALCULATOR</string>
+    <string name="pref_decimal_places">Set Number of Decimal Places</string>
+    <string name="pref_decimal_places_default">2</string>
+    <string name="pref_decimal_places_entry_1">0</string>
+    <string name="pref_decimal_places_entry_2">1 - (For example: 0.1)</string>
+    <string name="pref_decimal_places_entry_3">2 - (For example: 0.12)</string>
+    <string name="pref_decimal_places_entry_4">3 - (For example: 0.123)</string>
+    <string name="pref_decimal_places_entry_5">4 - (For example: 0.1234)</string>
+    <string name="pref_decimal_places_entry_6">5 - (For example: 0.12345)</string>
+    <string name="pref_loan_term_type">Default Loan Term Type</string>
+    <string name="pref_loan_term_type_default">વર્ષ </string>
+    <string name="pref_more_apps">More apps from Handy Apps</string>
+    <string name="pref_more_apps_summary">Check out our other applications in the app store</string>
+    <string name="pref_pmt_type">Default Payment Type</string>
+    <string name="pref_pmt_type_default">માસિક</string>
+    <string name="pref_sep">Thousands and Decimal Separators</string>
+    <string name="pref_sep_default">"Thousand: Comma(,)
+Decimal: Dot (.)"</string>
+    <string name="pref_sep_entry_2">"Thousand: Dot(.)
+Decimal: Comma(,)"</string>
+    <string name="pref_sep_entry_3">"Thousand: Space( )
+Decimal: Comma(,)"</string>
+    <string name="pref_sep_entry_4">"Thousand: Apostrophe(')
+Decimal: Dot(.)"</string>
+    <string name="pref_tell_friends">Tell your friends about Loan Calculator</string>
+    <string name="pref_tell_friends_summary">Share this amazing free loan calculator app with your friends now!</string>
+    <string name="recal_button_text">Recalculate</string>
+    <string name="reset_button_text">Reset</string>
+    <string name="result_title">Result</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="total_interest">કુલ વ્યાજ </string>
+    <string name="total_payment_percent">100.0%</string>
+    <string name="total_repayment">કુલ ચુકવણી </string>
+    <string name="title_activity_news_detail">NewsDetail</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="fixedtitle">સત્સંગ શિક્ષણ પરીક્ષા- સુરત</string>
+
+    <string name="app_Id">220308178312200</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-8785923025546886/8352991857</string>
+</resources>

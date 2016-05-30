@@ -1,0 +1,125 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TableRowStyle">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/app_light_gray</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">?android:listPreferredItemHeight</item>
+        <item name="android:layout_marginLeft">5.0dip</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+        <item name="android:layout_marginBottom">5.0dip</item>
+    </style>
+
+    <style name="RelativeLayoutStyle">
+        <item name="android:background">@color/app_dark_gray</item>
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="CheckBoxStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:button">@drawable/checkbox_custom</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="TextBoxLoanFragment" parent="@android:style/TextAppearance.Small">
+        <item name="android:paddingLeft">5.0dip</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <style name="EditTextStyle" parent="@android:style/TextAppearance.Large">
+        <item name="android:ellipsize">start</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+        <item name="android:layout_weight">3.0</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/spinner_cab_background_holo_dark</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:clipChildren">true</item>
+    </style>
+
+    <style name="TabletButton" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button_tablet_custom</item>
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+    </style>
+
+    <style name="ResultTableRowStyle">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="TextBoxBoldStyle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PieChartPercentageTextStyle">
+        <item name="android:textSize">40.0sp</item>
+    </style>
+
+    <style name="PieChartLabelTextStyle">
+        <item name="android:textSize">20.0sp</item>
+    </style>
+
+    <style name="TextBoxLargeStyle" parent="@android:style/TextAppearance.Large">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LineGraphAxisLabelStyle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/concrete</item>
+        <item name="android:gravity">right</item>
+        <item name="android:paddingRight">3.0dip</item>
+        <item name="android:layout_width">65.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="LineGraphLineStyle">
+        <item name="android:background">@color/light_gray</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0dip</item>
+    </style>
+
+    <style name="LineGraphLabelTextStyle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LineGraphTextStyle" parent="@android:style/TextAppearance.Small" />
+
+    <style name="LoanTermButton" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button_loanterm_custom</item>
+    </style>
+
+</resources>

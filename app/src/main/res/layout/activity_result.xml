@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_piegraph"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:id="@+id/txtLoanTablesv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5.0dip">
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/tvNoDataFound"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="101.0dip"
+                android:gravity="center"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/no_data_table_fragment"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_go_to_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="141.0dip"
+                android:background="@drawable/btn_view_by_months_years"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/go_to_calc"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+        </FrameLayout>
+    </ScrollView>
+
+
+    <ScrollView
+        android:id="@+id/sv_piegraph"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_weight="1.0"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.thummar.hololib.PieGraph
+                    android:id="@+id/piegraph"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/pie_graph_height" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/pie_graph_height"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/percentage"
+                        style="@style/PieChartPercentageTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/label"
+                        style="@style/PieChartLabelTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/percentage"
+                        android:gravity="center"
+                        android:text="@string/pie_slice_one" />
+                </RelativeLayout>
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_summary"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="20.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:baselineAligned="false"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_percent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/pie_graph_icon"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/fa" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/pie_slice_one" />
+
+                    <TextView
+                        android:id="@+id/total_interest_percent"
+                        style="@style/TextBoxLargeStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/total_interest_value"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:baselineAligned="false"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_loan_icon"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/pie_graph_icon"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/tr" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/pie_slice_two" />
+
+                    <TextView
+                        android:id="@+id/loan_amount_percent"
+                        style="@style/TextBoxLargeStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/loan_amount_value"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:baselineAligned="false"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_repayment_icon"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/pie_graph_icon"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/eq" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/pie_chart_title" />
+
+                    <TextView
+                        android:id="@+id/total_payment_percent"
+                        style="@style/TextBoxLargeStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/total_payment_value"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="See Wrong Answer"
+        android:id="@+id/showWro"/>
+
+
+</LinearLayout>
+
+
