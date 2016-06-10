@@ -164,7 +164,7 @@ public class LoginFragment extends Fragment implements Validator.ValidationListe
 
             Log.e("Response is Success", id);
             Log.e("Response is Success", pass);
-            params.put("table_name", "tbl_user");
+            params.put("table_name", "user");
             params.put("userId", id);
             params.put("password", pass);
             client.post("http://baps.bittechnologies.in/bittechnologies/baps_quiz/webservice/check_login.php", params, new AsyncHttpResponseHandler() {
@@ -199,6 +199,7 @@ public class LoginFragment extends Fragment implements Validator.ValidationListe
                             SharedPreferences.Editor mEditor = mSharedPreferences.edit();
                             mEditor.clear();
                             mEditor.putString("userId", jo.getString("userId"));
+                            mEditor.putString("exma_id",jo.getString("exam_id"));
                             mEditor.putInt("Logged", 1);
                             mEditor.putString("userName", jo.getString("name"));
                             mEditor.commit();

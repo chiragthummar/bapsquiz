@@ -63,7 +63,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="a0c3ab13005b4fef13df7e26d4aa2be68012cd7f" />
+            android:value="7ed6059b2605d10242ec8f52f67adec90703c34c" />
 
         <activity android:name=".WrongAnswerActivity"
             android:parentActivityName=".MainActivity"></activity>

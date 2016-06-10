@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bittechnologies.bapsquiz.fragments.BookFragment;
 import com.bittechnologies.bapsquiz.fragments.HomeFragment;
 import com.bittechnologies.bapsquiz.fragments.LoginFragment;
 import com.bittechnologies.bapsquiz.fragments.MainHomeFragment;
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity
             if (flag == 1) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.mainContainer, new HomeFragment()).addToBackStack("Home")
+                        .replace(R.id.mainContainer, new BookFragment()).addToBackStack("Home")
                         .commit();
             }
             else {

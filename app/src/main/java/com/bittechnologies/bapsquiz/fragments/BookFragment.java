@@ -3,6 +3,8 @@ package com.bittechnologies.bapsquiz.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.bittechnologies.bapsquiz.R;
 import com.bittechnologies.bapsquiz.adapters.CustomBookAdapter;
 import com.bittechnologies.bapsquiz.custom.GridViewCompat;
@@ -104,13 +107,29 @@ public class BookFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Book cr = (Book) parent.getItemAtPosition(position);
-                int idd = cr.getId();
-                ChapterFragment mChapterFragment = new ChapterFragment(idd);
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.mainContainer, mChapterFragment).addToBackStack("Book")
-                        .commit();
+//                Book cr = (Book) parent.getItemAtPosition(position);
+//                int idd = cr.getId();
+//                ChapterFragment mChapterFragment = new ChapterFragment(idd);
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.mainContainer, mChapterFragment).addToBackStack("Book")
+//                        .commit();
+                new MaterialDialog.Builder(getActivity())
+                        .title(R.string.title)
+                        .items(R.array.items)
+                        .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
+                            @Override
+                            public boolean onSelection(MaterialDialog dialog, Integer[] which, CharSequence[] text) {
+                                /**
+                                 * If you use alwaysCallMultiChoiceCallback(), which is discussed below,
+                                 * returning false here won't allow the newly selected check box to actually be selected.
+                                 * See the limited multi choice dialog example in the sample project for details.
+                                 **/
+                                return true;
+                            }
+                        })
+                        .positiveText(R.string.choose)
+                        .show();
             }
         });
 
@@ -162,9 +181,10 @@ public class BookFragment extends Fragment {
             goTo.setVisibility(View.GONE);
 
             params.put("table_name", "book");
+            SharedPreferences  mSharedPreferences=getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
 
             //StaticData.snackNormalMessage(getActivity(),"Examid"+ getArguments().getInt("exam_id",0));
-            params.put("exam_id", String.valueOf(exam_id));
+            params.put("exam_id", String.valueOf(mSharedPreferences.getString("exam_id","")));
             Log.d("JSONcsdfdsfsdf-----", "++++++++++++++++++++++" + exam_id);
             bookList.clear();
             mAsyncHttpClient.post("http://baps.bittechnologies.in/bittechnologies/baps_quiz/webservice/get_all_book.php", params, new AsyncHttpResponseHandler() {
