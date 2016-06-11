@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BAPSQuiz</string>
+    <string name="app_name">Satsang Exam Quiz</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,12 +9,40 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+<string-array name="items">
+   <item>1</item>
+   <item>2</item>
+   <item>3</item>
+   <item>4</item>
+   <item>5</item>
+   <item>6</item>
+   <item>7</item>
+   <item>8</item>
+   <item>9</item>
+   <item>10</item>
+   <item>11</item>
+   <item>12</item>
+   <item>13</item>
+   <item>14</item>
+   <item>15</item>
+   <item>16</item>
+   <item>17</item>
+   <item>18</item>
+   <item>19</item>
+   <item>20</item>
+   <item>21</item>
+   <item>22</item>
+   <item>23</item>
+   <item>24</item>
+   <item>25</item>
+</string-array>
+
     <string name="date_picker_title">Choose Date</string>
     <string name="decrease_loan_term">Decrease Loan Term</string>
     <string name="decrease_loan_term_and_increase_payment_amount">Decrease Loan Term and/or Increase Payment Amount.</string>
     <string name="dismiss_snackbar">Dismiss</string>
     <string name="done">Done</string>
-    <string name="go_to_calc">Retry</string>
+    <string name="go_to_calc">Go Back To Home</string>
     <string name="increase_interest_rate">Increase Interest Rate</string>
     <string name="increase_loan_amount">Increase Loan Amount</string>
     <string name="increase_loan_term">Increase Loan Term</string>
@@ -38,7 +66,7 @@
     <string name="monthly_payment_should_be_more_than">Monthly Payment should be more than %s</string>
     <string name="months">મહિનો </string>
     <string name="no_data_chart_fragment">Unable to connect to internet</string>
-    <string name="no_data_table_fragment">Unable to connect to internet</string>
+    <string name="no_data_table_fragment">No Data Found</string>
     <string name="on_checked_changed_text">%1$s locked. Input the other 3 fields to calculate %2$s.</string>
     <string name="payment">ચુકવણી </string>
     <string name="pie_chart_title">કુલ સવાલ</string>
@@ -85,5 +113,5 @@ Decimal: Dot(.)"</string>
 
     <string name="app_Id">220308178312200</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-8785923025546886/8352991857</string>
+    <string name="banner_ad_unit_id">caa-app-pub-8785923025546886/8352991857</string>
 </resources>

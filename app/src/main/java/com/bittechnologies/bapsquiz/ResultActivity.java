@@ -64,7 +64,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-8785923025546886/6876258653");
+        mInterstitialAd.setAdUnitId("caa-app-pub-8785923025546886/6876258653");
         AdRequest adRequest = new AdRequest.Builder()
 
                 .build();

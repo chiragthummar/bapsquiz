@@ -61,20 +61,9 @@
         <item name="android:layout_weight">3.0</item>
     </style>
 
-    <style name="SpinnerStyle">
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:background">@drawable/spinner_cab_background_holo_dark</item>
-        <item name="android:padding">0.0dip</item>
-        <item name="android:clipChildren">true</item>
-    </style>
 
-    <style name="TabletButton" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:background">@drawable/button_tablet_custom</item>
-        <item name="android:paddingLeft">10.0dip</item>
-        <item name="android:paddingRight">10.0dip</item>
-    </style>
+
+
 
     <style name="ResultTableRowStyle">
         <item name="android:background">@android:color/white</item>
@@ -117,9 +106,6 @@
 
     <style name="LineGraphTextStyle" parent="@android:style/TextAppearance.Small" />
 
-    <style name="LoanTermButton" parent="@android:style/TextAppearance.Large">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:background">@drawable/button_loanterm_custom</item>
-    </style>
+
 
 </resources>

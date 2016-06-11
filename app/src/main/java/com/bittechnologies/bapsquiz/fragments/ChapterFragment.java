@@ -102,13 +102,13 @@ public class ChapterFragment extends Fragment {
 
                 Chapter cr = (Chapter) parent.getItemAtPosition(position);
                 int idd = cr.getId();
-                QuizFragment mQuizFragment = new QuizFragment(book_id, idd);
-                //   Toast.makeText(getActivity(),"Iddd"+book_id,Toast.LENGTH_SHORT).show();
-                //  Toast.makeText(getActivity(),"Chapter"+idd,Toast.LENGTH_SHORT).show();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.mainContainer, mQuizFragment).addToBackStack(null)
-                        .commit();
+//                QuizFragment mQuizFragment = new QuizFragment(book_id, idd);
+//                //   Toast.makeText(getActivity(),"Iddd"+book_id,Toast.LENGTH_SHORT).show();
+//                //  Toast.makeText(getActivity(),"Chapter"+idd,Toast.LENGTH_SHORT).show();
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.mainContainer, mQuizFragment).addToBackStack(null)
+//                        .commit();
             }
         });
 

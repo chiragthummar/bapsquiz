@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+//        Toast.makeText(getApplicationContext(), "User Is Not Registered With US ", Toast.LENGTH_SHORT).show();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -178,7 +179,7 @@ public class MainActivity extends AppCompatActivity
             if (flag == 1) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.mainContainer, new HomeFragment()).addToBackStack("Home")
+                        .replace(R.id.mainContainer, new BookFragment()).addToBackStack("Home")
                         .commit();
             } else {
                 FragmentManager fragmentManager = getSupportFragmentManager();

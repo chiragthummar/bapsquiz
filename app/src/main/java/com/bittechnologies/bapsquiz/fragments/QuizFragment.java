@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,13 +84,13 @@ public class QuizFragment extends Fragment {
     public static Button goTo;
 
     @SuppressLint({"NewApi", "ValidFragment"})
-    public QuizFragment(int book_id, int chapter_id) {
+    public QuizFragment(String exam_id, String chapter_id) {
         // Required empty public constructor
-        this.book_id = book_id;
+        this.exam_id = exam_id;
         this.chapter_id = chapter_id;
     }
 
-    int book_id, chapter_id;
+    String exam_id, chapter_id;
     AsyncHttpClient mAsyncHttpClient;
     RequestParams params;
     ProgressDialog progressDialog;
@@ -104,10 +105,10 @@ public class QuizFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_quiz, container, false);
-
+        Log.e("Quizzzzzzzzz Book-----", "++++++++++++++++++++++");
 
         mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId("ca-app-pub-8785923025546886/6876258653");
+        mInterstitialAd.setAdUnitId("caa-app-pub-8785923025546886/6876258653");
         AdRequest adRequest = new AdRequest.Builder()
 
                 .build();
@@ -129,7 +130,12 @@ public class QuizFragment extends Fragment {
         goTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addQuestions();
+
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainContainer, new BookFragment()).addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -185,7 +191,7 @@ public class QuizFragment extends Fragment {
                                     Intent intent=new Intent(getActivity(),ResultActivity.class);
                                     intent.putExtra("counter",counter);
                                     intent.putExtra("total_question",total_question);
-                                    intent.putExtra("book_id",book_id);
+//                                    intent.putExtra("book_id",book_id);
                                     intent.putExtra("chapter_id",chapter_id);
                                     intent.putExtra("wrong", wrongAnswer);
                                     intent.putStringArrayListExtra("wronganswer", wronganswername);
@@ -236,7 +242,7 @@ public class QuizFragment extends Fragment {
                                     Intent intent=new Intent(getActivity(),ResultActivity.class);
                                     intent.putExtra("counter",counter);
                                     intent.putExtra("total_question",total_question);
-                                    intent.putExtra("book_id",book_id);
+//                                    intent.putExtra("book_id",book_id);
                                     intent.putExtra("chapter_id",chapter_id);
                                     intent.putExtra("wrong", wrongAnswer);
                                     intent.putStringArrayListExtra("wronganswer", wronganswername);
@@ -286,7 +292,7 @@ public class QuizFragment extends Fragment {
                                     Intent intent=new Intent(getActivity(),ResultActivity.class);
                                     intent.putExtra("counter",counter);
                                     intent.putExtra("total_question",total_question);
-                                    intent.putExtra("book_id",book_id);
+//                                    intent.putExtra("book_id",book_id);
                                     intent.putExtra("chapter_id",chapter_id);
                                     intent.putExtra("wrong", wrongAnswer);
                                     intent.putStringArrayListExtra("wronganswer", wronganswername);
@@ -336,7 +342,7 @@ public class QuizFragment extends Fragment {
                                     Intent intent=new Intent(getActivity(),ResultActivity.class);
                                     intent.putExtra("counter",counter);
                                     intent.putExtra("total_question",total_question);
-                                    intent.putExtra("book_id",book_id);
+//                                    intent.putExtra("book_id",book_id);
                                     intent.putExtra("chapter_id",chapter_id);
                                     intent.putExtra("wrong", wrongAnswer);
                                     intent.putStringArrayListExtra("wronganswer", wronganswername);
@@ -374,8 +380,31 @@ public class QuizFragment extends Fragment {
 
         btnA.setText(currentQ.getOPTA());
         btnB.setText(currentQ.getOPTB());
-        btnC.setText(currentQ.getOPTC());
-        btnD.setText(currentQ.getOPTD());
+
+
+        if(currentQ.getOPTC().length() > 1)
+        {
+            btnC.setVisibility(View.VISIBLE);
+            btnC.setText(currentQ.getOPTC());
+        }
+        else
+        {
+            btnC.setVisibility(View.GONE);
+            btnC.setText("");
+        }
+
+
+
+
+        if(currentQ.getOPTD().length() > 1) {
+            btnD.setVisibility(View.VISIBLE);
+            btnD.setText(currentQ.getOPTD());
+        }
+        else
+        {
+            btnD.setVisibility(View.GONE);
+            btnD.setText("");
+        }
 
         btnA.setBackgroundResource(R.drawable.button_multiple_choice_background);
         btnB.setBackgroundResource(R.drawable.button_multiple_choice_background);
@@ -430,24 +459,24 @@ public class QuizFragment extends Fragment {
 
         } else {
 
-            txtQuestion.setVisibility(View.VISIBLE);
-            btnA.setVisibility(View.VISIBLE);
-            btnB.setVisibility(View.VISIBLE);
-            btnC.setVisibility(View.VISIBLE);
-            btnD.setVisibility(View.VISIBLE);
-            noData.setVisibility(View.GONE);
-            goTo.setVisibility(View.GONE);
+//            txtQuestion.setVisibility(View.VISIBLE);
+//            btnA.setVisibility(View.VISIBLE);
+//            btnB.setVisibility(View.VISIBLE);
+//            btnC.setVisibility(View.VISIBLE);
+//            btnD.setVisibility(View.VISIBLE);
+//            noData.setVisibility(View.GONE);
+//            goTo.setVisibility(View.GONE);
 
 
             params = new RequestParams();
             mAsyncHttpClient = new AsyncHttpClient();
 
             params.put("table_name", "question");
-            params.put("book_id", String.valueOf(book_id));
+            params.put("book_id", String.valueOf(exam_id));
             params.put("chapter_id", String.valueOf(chapter_id));
-            Log.d("Quizzzzzzzzz Book-----", "++++++++++++++++++++++" + book_id);
-            Log.d("Quizzzzzzzzz-----", "++++++++++++++++++++++" + chapter_id);
-            mAsyncHttpClient.post("http://baps.bittechnologies.in/bittechnologies/baps_quiz/webservice/get_question.php", params, new AsyncHttpResponseHandler() {
+            Log.e("Quizzzzzzzzz Book-----", "++++++++++++++++++++++" + exam_id);
+            Log.e("Quizzzzzzzzz-----", "++++++++++++++++++++++" + chapter_id);
+            mAsyncHttpClient.post("http://baps.bittechnologies.in/bittechnologies/baps_quiz/webservice/get_ramdon_question.php", params, new AsyncHttpResponseHandler() {
 
                 @Override
                 public void onStart() {
@@ -472,49 +501,83 @@ public class QuizFragment extends Fragment {
                     String str = new String(responseBody);
 
 
+
                     try {
-                        Log.d("JSON-----", "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + str);
+                        Log.e("JSON-----", "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + str);
                         JSONObject jsonObject = new JSONObject(str);
                         JSONArray jsonArray = jsonObject.getJSONArray("results");
 
-                        if (jsonArray.length() <= 0) {
 
-                            Snackbar.make(getActivity().findViewById(android.R.id.content), "No Data Found", Snackbar.LENGTH_LONG).show();
-                        } else {
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                Question mQuestion = new Question();
-                                mQuestion.setQUESTION(jsonObject1.getString("question"));
-                                mQuestion.setOPTA(jsonObject1.getString("option1"));
-                                mQuestion.setOPTB(jsonObject1.getString("option2"));
-                                mQuestion.setOPTC(jsonObject1.getString("option3"));
-                                mQuestion.setOPTD(jsonObject1.getString("option4"));
-                                mQuestion.setBook_id(jsonObject1.getInt("book_id"));
-                                mQuestion.setChapter_id(jsonObject1.getInt("chapter_id"));
-                                mQuestion.setID(jsonObject1.getInt("id"));
-                                mQuestion.setANSWER(jsonObject1.getString("answer"));
-                                quesList.add(mQuestion);
-                            }
-                            Log.d("Question LIst sizeeeee", "+++++++++++++++++++++++++" + quesList.size());
-                            qid--;
-                            currentQ = quesList.get(qid);
-                            total_question = quesList.size();
-                            // setQuestionView();
-                            total_question = quesList.size();
-                            txtQuestion.setText(currentQ.getQUESTION());
-                            Log.d("Qidddddddddddddddddd", "----------------------------------------" + qid);
-                            btnA.setText(currentQ.getOPTA());
-                            btnB.setText(currentQ.getOPTB());
-                            btnC.setText(currentQ.getOPTC());
-                            btnD.setText(currentQ.getOPTD());
+                          if(jsonArray.length() >=1 ) {
+                              Log.e("JSON-----", "++++++++++++++INNNNNNNNNNNNNNNNNNNNNNNNN+++++++++++++++++++");
+                              for (int i = 0; i < jsonArray.length(); i++) {
+                                  JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                                  Question mQuestion = new Question();
+                                  mQuestion.setQUESTION(jsonObject1.getString("question"));
+                                  mQuestion.setOPTA(jsonObject1.getString("option1"));
+                                  mQuestion.setOPTB(jsonObject1.getString("option2"));
+                                  mQuestion.setOPTC(jsonObject1.getString("option3"));
+                                  mQuestion.setOPTD(jsonObject1.getString("option4"));
+                                  mQuestion.setBook_id(jsonObject1.getInt("book_id"));
+                                  mQuestion.setChapter_id(jsonObject1.getInt("chapter_id"));
+                                  mQuestion.setID(jsonObject1.getInt("id"));
+                                  mQuestion.setANSWER(jsonObject1.getString("answer"));
+                                  quesList.add(mQuestion);
+                              }
+                              Log.e("Question LIst sizeeeee", "+++++++++++++++++++++++++" + quesList.size());
+                              qid--;
+                              currentQ = quesList.get(qid);
+                              total_question = quesList.size();
+                              // setQuestionView();
+                              total_question = quesList.size();
+                              txtQuestion.setText(currentQ.getQUESTION());
+                              Log.e("Qidddddddddddddddddd", "----------------------------------------" + qid);
+                              btnA.setVisibility(View.VISIBLE);
+                              btnB.setVisibility(View.VISIBLE);
+                              btnC.setVisibility(View.VISIBLE);
+                              btnD.setVisibility(View.VISIBLE);
+                              noData.setVisibility(View.GONE);
+                              goTo.setVisibility(View.GONE);
 
-                            btnA.setBackgroundResource(R.drawable.button_multiple_choice_background);
-                            btnB.setBackgroundResource(R.drawable.button_multiple_choice_background);
-                            btnC.setBackgroundResource(R.drawable.button_multiple_choice_background);
-                            btnD.setBackgroundResource(R.drawable.button_multiple_choice_background);
-                            qid++;
-                            Log.d("Question LIst sizeeeee", "+++++++++++++++++++++++++" + quesList.size());
-                        }
+
+                              btnA.setText(currentQ.getOPTA());
+                              btnB.setText(currentQ.getOPTB());
+                              if(currentQ.getOPTC().length() > 1)
+                              {
+                                  btnC.setVisibility(View.VISIBLE);
+                                  btnC.setText(currentQ.getOPTC());
+                              }
+                              else
+                              {
+                                  btnC.setVisibility(View.GONE);
+                                  btnC.setText("");
+                              }
+
+
+
+
+                              if(currentQ.getOPTD().length() > 1) {
+                                  btnD.setVisibility(View.VISIBLE);
+                                  btnD.setText(currentQ.getOPTD());
+                              }
+                              else
+                              {
+                                  btnD.setVisibility(View.GONE);
+                                  btnD.setText("");
+                              }
+
+                              btnA.setBackgroundResource(R.drawable.button_multiple_choice_background);
+                              btnB.setBackgroundResource(R.drawable.button_multiple_choice_background);
+                              btnC.setBackgroundResource(R.drawable.button_multiple_choice_background);
+                              btnD.setBackgroundResource(R.drawable.button_multiple_choice_background);
+                              qid++;
+                              Log.d("Question LIst sizeeeee", "+++++++++++++++++++++++++" + quesList.size());
+                          }
+                        else
+                          {
+
+                          }
+
                     } catch (Exception e) {
 
                     }

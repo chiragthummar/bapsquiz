@@ -102,20 +102,20 @@ public class BookFragment extends Fragment {
             }
         });
         LoadData();
-
+        final SharedPreferences  mSharedPreferences=getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//                Book cr = (Book) parent.getItemAtPosition(position);
-//                int idd = cr.getId();
+                Book cr = (Book) parent.getItemAtPosition(position);
+              final  int idd = cr.getId();
 //                ChapterFragment mChapterFragment = new ChapterFragment(idd);
 //                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //                fragmentManager.beginTransaction()
 //                        .replace(R.id.mainContainer, mChapterFragment).addToBackStack("Book")
 //                        .commit();
                 new MaterialDialog.Builder(getActivity())
-                        .title(R.string.title)
+                        .title("Select Chapter")
                         .items(R.array.items)
                         .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
                             @Override
@@ -125,10 +125,37 @@ public class BookFragment extends Fragment {
                                  * returning false here won't allow the newly selected check box to actually be selected.
                                  * See the limited multi choice dialog example in the sample project for details.
                                  **/
+
+                            StringBuilder cb=new StringBuilder(200);
+                             for(int i=0;i<text.length;i++)
+                             {
+                                 cb.append(text[i].toString());
+                                 if(i!=text.length)
+                                 {
+                                 cb.append(",");}
+
+                                 Log.e("Charrrrrrrrrrrrrr",""+text[i].toString());
+                             }
+
+
+                                cb.deleteCharAt(cb.length()-1);
+
+
+                                Log.e("Actual Array rrrrr",""+cb.toString());
+
+                                QuizFragment mQuizFragment = new QuizFragment(String.valueOf(idd), cb.toString());
+                                //   Toast.makeText(getActivity(),"Iddd"+book_id,Toast.LENGTH_SHORT).show();
+                                //  Toast.makeText(getActivity(),"Chapter"+idd,Toast.LENGTH_SHORT).show();
+                                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                fragmentManager.beginTransaction()
+                                        .replace(R.id.mainContainer, mQuizFragment).addToBackStack(null)
+                                        .commit();
+
+
                                 return true;
                             }
                         })
-                        .positiveText(R.string.choose)
+                        .positiveText("OK")
                         .show();
             }
         });
@@ -184,8 +211,8 @@ public class BookFragment extends Fragment {
             SharedPreferences  mSharedPreferences=getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
 
             //StaticData.snackNormalMessage(getActivity(),"Examid"+ getArguments().getInt("exam_id",0));
-            params.put("exam_id", String.valueOf(mSharedPreferences.getString("exam_id","")));
-            Log.d("JSONcsdfdsfsdf-----", "++++++++++++++++++++++" + exam_id);
+            params.put("exam_id", String.valueOf(mSharedPreferences.getInt("exam_id",0)));
+            Log.e("JSONcsdfdsfsdf-----", "++++++++++++++++++++++" + String.valueOf(mSharedPreferences.getInt("exam_id",0)));
             bookList.clear();
             mAsyncHttpClient.post("http://baps.bittechnologies.in/bittechnologies/baps_quiz/webservice/get_all_book.php", params, new AsyncHttpResponseHandler() {
 

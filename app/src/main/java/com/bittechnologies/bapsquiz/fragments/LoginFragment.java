@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -183,23 +184,36 @@ public class LoginFragment extends Fragment implements Validator.ValidationListe
                     mSharedPreferences = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
 
                     String str = new String(responseBody);
-
+                    Log.e("Json result ----", "Dataaaaaaaaaaaaaaaa           "+str);
                     try {
+                        if (pdialog.isShowing()) {
+                            pdialog.dismiss();
+                        }
                         JSONObject jsonObject = new JSONObject(str);
                         String temp = jsonObject.getString("results");
                         JSONArray userData = jsonObject.getJSONArray("data");
+                        Log.e("INnnnnnn","InnnnnnnPPPPPPPPPPPPP--------------------"+temp);
+                        if(temp.equals("Unsuccess"))
+                        {
+                            Log.e("INnnnnnn","Innnnnnn");
+                            Toast.makeText(getActivity(), "User Is Not Registered With US ", Toast.LENGTH_SHORT).show();
+                        }
+
+
 
                         JSONObject jo = userData.getJSONObject(0);
 
                         Log.e("User id -----", jo.getString("name"));
+                        Log.e("User exam -----", jo.getString("exam_id"));
 
                         Log.e("Json result ----", userData.toString());
                         if (temp.equals("Success")) {
+                            Log.e("INnnnnnn","InnnnnnnTrueeeeeeeeeeeeeeeeee");
                             //userName=jo.getString("name");
                             SharedPreferences.Editor mEditor = mSharedPreferences.edit();
                             mEditor.clear();
                             mEditor.putString("userId", jo.getString("userId"));
-                            mEditor.putString("exma_id",jo.getString("exam_id"));
+                            mEditor.putInt("exam_id",jo.getInt("exam_id"));
                             mEditor.putInt("Logged", 1);
                             mEditor.putString("userName", jo.getString("name"));
                             mEditor.commit();
@@ -220,14 +234,18 @@ public class LoginFragment extends Fragment implements Validator.ValidationListe
                             Intent intent = getActivity().getIntent();
                             getActivity().finish();
                             startActivity(intent);
-                        } else {
-                            Toast.makeText(getActivity(), "User Is Not Registered With US ", Toast.LENGTH_SHORT).show();
                         }
+                        else
+                        {
+                          Log.e("dffdsfsd","sdfsdfsdf");
+                        }
+
+
                         Log.d("Answerrrrrrrrrr", "" + jsonObject.getString("results"));
                         Log.d("String ", "sdfsdfsd" + jsonObject.getString("data"));
 
                     } catch (Exception e) {
-
+                        e.printStackTrace();
                     }
                     if (pdialog.isShowing()) pdialog.dismiss();
                 }
